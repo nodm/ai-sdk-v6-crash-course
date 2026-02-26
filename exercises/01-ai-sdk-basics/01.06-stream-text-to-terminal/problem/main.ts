@@ -8,6 +8,7 @@ const prompt =
 
 const stream = streamText({ model, prompt });
 
-for await (const chunk of stream.textStream) {
-  process.stdout.write(chunk);
+for await (const chunk of stream.toUIMessageStream() /*.textStream*/) {
+  // process.stdout.write(chunk);
+  console.log(chunk);
 }
